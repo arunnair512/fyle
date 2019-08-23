@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-searchbar
+    mode="md"
+    color="secondary"
+    (ionChange)="search($event)"
+    (ionClear)="clear($event)"
+    name="search"
+    [(ngModel)]="searchText"
+  ></ion-searchbar>
+</ion-header>
+<app-progress-bar
+  *ngIf="isLoading"
+  [progress]="loadProgress"
+></app-progress-bar>
+
+<ion-content class="home-page">
+  <ion-select
+    style="color: white;"
+    placeholder="Select A city"
+    (ionChange)="citySelected($event)"
+  >
+    <ion-select-option value="BANGALORE">BENGALURU</ion-select-option>
+    <ion-select-option value="MUMBAI">MUMBAI</ion-select-option>
+    <ion-select-option value="CHENNAI">CHENNAI</ion-select-option>
+  </ion-select>
+  <!-- <section id="snow"></section> -->
+  <div class="city-list" *ngIf="cityList; else emptyState">
+    <city-item
+      (click)="goToDetails(city)"
+      *ngFor="let bank of banks"
+      [data]="bank"
+    ></city-item>
+  </div>
+  <!--  <div class="city-list">
+    <city-item (click)="goToDetails(city)" *ngFor="let city1 of cachedCityList;" [data]="city1"></city-item>
+  </div> -->
+  <ng-template #emptyState>
+    <empty-state [query]="query"></empty-state>
+  </ng-template>
+</ion-content>

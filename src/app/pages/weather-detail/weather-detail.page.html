@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{forecastData ? forecastData.city.name : 'Weather forecast'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+    <div class="forecast" *ngIf="forecastData">
+        <div class="forecast__main">
+          <div class="forecast__temp">
+            <div class="forecast__temp__city">
+              {{currentDay.weekDay}}
+            </div>
+            <div class="forecast__temp__degree">
+              {{currentDay.temperature}}<i class="wi wi-celsius"></i>
+            </div>
+          </div>
+          <div class="forecast__data">
+            <div class="forecast__data__item"><span>Humidity:</span><span>{{currentDay.humidity}}<i class="wi wi-humidity"></i></span></div>
+            <div class="forecast__data__item"><span>Wind:</span><span>{{currentDay.wind}}<i class="wi wi-windy"></i></span></div>
+          </div>
+        </div>
+        <div class="list">
+          <div class="forecast__item" *ngFor="let item of forecastList">
+            <span class="day">{{item.weekDay}}</span> <div class="temperature"> {{item.temperature}}°<i class="wi" [ngClass]="getWeatherIcon(item)"></i></div> 
+          </div>
+        </div>
+    </div>
+</ion-content>

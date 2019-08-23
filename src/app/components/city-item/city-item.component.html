@@ -1,0 +1,39 @@
+<!--<div class="city-item">
+     <div class="city-item__name">{{ data.bank_name }}</div>
+  <br /><BR />
+  <div class="">{{ data.address }}</div>
+
+</div>
+ {ifsc: "ABHY0065001", bank_id: 60, branch: "RTGS-HO", 
+ address: "ABHYUDAYA BANK BLDG., B.NO.71, NEHRU NAGAR, KURLA (E), MUMBAI-400024", 
+ city: "MUMBAI", …}
+1:
+
+-->
+
+<!-- ,{"ifsc":"ABHY0065019","bank_id":60,
+    "branch":"KALAMBOLI",
+    "address":"BLDG F-4,
+SHOP NO 17-20, SECTOR 3 EB, KALAMBOLI, NAVI
+MUMBAI-410218",
+"city":"MUMBAI",
+"district":"GREATERMUMBAI",
+"state":"MAHARASHTRA",
+"bank_name":"ABHYUDAYA COOPERATIVE BANK LIMITED"}] -->
+
+<ion-card>
+  <ion-card-title class="city-item">
+    {{ data.bank_name }}
+  </ion-card-title>
+
+  <ion-card-content class="city-content">
+    {{ data.address }}
+  </ion-card-content>
+  <ion-card-subtitle class="city-content">
+    CITY : {{ data.city }}
+    <br />
+    DISTRICT : {{ data.district }}
+    <br />
+    STATE : {{ data.state }}
+  </ion-card-subtitle>
+</ion-card>
